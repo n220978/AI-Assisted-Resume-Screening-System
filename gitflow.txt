@@ -1,0 +1,37 @@
+🔹 First time setup (only once)
+git clone https://github.com/n220978/AI-Assisted-Resume-Screening-System.git
+cd AI-Assisted-Resume-Screening-System
+
+🔹 Every time before starting work
+git checkout main
+git pull origin main
+
+👉 Now your main is up-to-date
+
+🔹 switch to your branch 
+git checkout your-branch
+
+🔹 Sync your branch with main (VERY IMPORTANT)
+git merge main
+
+👉 Now your branch has latest project structure + updates
+
+🔹 Do your work 👨‍💻
+(Edit files, add features, fix bugs, YOLO stuff 😎)
+
+🔹 Save your work
+git add .
+git commit -m "added YOLO model integration / fixed bug / UI update"
+🔹 Before pushing (avoid conflicts)
+git pull origin main
+
+👉 If conflict comes → fix → then:
+git add .
+git commit -m "resolved conflicts"
+
+
+🔹 Push your branch
+👉 First time:
+git push -u origin your-branch
+👉 Next times:
+git push
