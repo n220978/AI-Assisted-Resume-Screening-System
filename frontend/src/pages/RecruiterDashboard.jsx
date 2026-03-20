@@ -108,7 +108,7 @@ const JobCard = ({ job, onProcess, onAutoShortlist, onAIRank, onAIInsights, onDe
         </div>
       </div>
 
-      {/* Score Distribution */}
+      {/* Score Distribution for the candidates */}
       <div className="mb-6 p-4 bg-slate-50 rounded-xl">
         <p className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
           <BarChart3 size={16} className="text-[#009688]" />
