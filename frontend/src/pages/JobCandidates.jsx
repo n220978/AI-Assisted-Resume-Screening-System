@@ -304,53 +304,8 @@ export const JobCandidates = () => {
                 </div>
               )}
 
-              
 
-              {activeTab === 'insights' && (
-                <AgentCard icon={Lightbulb} title="AI Insights" accentColor="emerald">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                    <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
-                      <p className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-3 flex items-center gap-1.5"><CheckCircle size={14} /> Key Strengths</p>
-                      <ul className="space-y-2">
-                        {selectedCandidate.key_strengths?.map((s, i) => <li key={i} className="text-sm text-emerald-700 flex items-start gap-2"><span className="text-emerald-500 mt-0.5">•</span> <span>{s}</span></li>)}
-                        {(!selectedCandidate.key_strengths || selectedCandidate.key_strengths.length === 0) && <li className="text-sm text-emerald-600 italic">No key strengths identified</li>}
-                      </ul>
-                    </div>
-                    <div className="bg-amber-50 rounded-xl p-4 border border-amber-100">
-                      <p className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-3 flex items-center gap-1.5"><AlertTriangle size={14} /> Skill Gaps</p>
-                      <ul className="space-y-2">
-                        {selectedCandidate.skill_gaps?.map((s, i) => <li key={i} className="text-sm text-amber-700 flex items-start gap-2"><span className="text-amber-500 mt-0.5">•</span> <span>{s}</span></li>)}
-                        {(!selectedCandidate.skill_gaps || selectedCandidate.skill_gaps.length === 0) && <li className="text-sm text-amber-600 italic">No major skill gaps identified</li>}
-                      </ul>
-                    </div>
-                  </div>
-                </AgentCard>
-              )}
-
-              {activeTab === 'coach' && (
-                <AgentCard icon={GraduationCap} title="What Coach Agent Told Candidate" accentColor="purple">
-                  <div className="space-y-4 mt-4">
-                    <div className="p-4 bg-violet-50 text-violet-800 rounded-xl border border-violet-100">
-                      <p className="text-sm italic font-medium">"{selectedCandidate.candidate_coaching?.short_message || 'N/A'}"</p>
-                    </div>
-                    {(selectedCandidate.candidate_coaching?.resume_improvements?.length > 0) && (
-                      <div className="p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                        <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Resume Suggestions given</p>
-                        <ul className="space-y-2">
-                          {selectedCandidate.candidate_coaching.resume_improvements.map((r, i) => (
-                            <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
-                              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-1.5 flex-shrink-0" />
-                              <span>{r}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </AgentCard>
-              )}
-
-              {activeTab === 'interview' && (
+{activeTab === 'interview' && (
                 <AgentCard icon={Mic2} title="Suggested Interview Plan" accentColor="brand">
                   <div className="space-y-4 mt-4">
                     {selectedCandidate.interview_plan?.interview_questions?.map((q, i) => (
@@ -374,6 +329,52 @@ export const JobCandidates = () => {
                   </div>
                 </AgentCard>
               )}
+            
+              {activeTab === 'coach' && (
+                <AgentCard icon={GraduationCap} title="What Coach Agent Told Candidate" accentColor="purple">
+                  <div className="space-y-4 mt-4">
+                    <div className="p-4 bg-violet-50 text-violet-800 rounded-xl border border-violet-100">
+                      <p className="text-sm italic font-medium">"{selectedCandidate.candidate_coaching?.short_message || 'N/A'}"</p>
+                    </div>
+                    {(selectedCandidate.candidate_coaching?.resume_improvements?.length > 0) && (
+                      <div className="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                        <p className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Resume Suggestions given</p>
+                        <ul className="space-y-2">
+                          {selectedCandidate.candidate_coaching.resume_improvements.map((r, i) => (
+                            <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 mt-1.5 flex-shrink-0" />
+                              <span>{r}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </AgentCard>
+              )}
+
+            {activeTab === 'insights' && (
+                <AgentCard icon={Lightbulb} title="AI Insights" accentColor="emerald">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                      <p className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-3 flex items-center gap-1.5"><CheckCircle size={14} /> Key Strengths</p>
+                      <ul className="space-y-2">
+                        {selectedCandidate.key_strengths?.map((s, i) => <li key={i} className="text-sm text-emerald-700 flex items-start gap-2"><span className="text-emerald-500 mt-0.5">•</span> <span>{s}</span></li>)}
+                        {(!selectedCandidate.key_strengths || selectedCandidate.key_strengths.length === 0) && <li className="text-sm text-emerald-600 italic">No key strengths identified</li>}
+                      </ul>
+                    </div>
+                    <div className="bg-amber-50 rounded-xl p-4 border border-amber-100">
+                      <p className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-3 flex items-center gap-1.5"><AlertTriangle size={14} /> Skill Gaps</p>
+                      <ul className="space-y-2">
+                        {selectedCandidate.skill_gaps?.map((s, i) => <li key={i} className="text-sm text-amber-700 flex items-start gap-2"><span className="text-amber-500 mt-0.5">•</span> <span>{s}</span></li>)}
+                        {(!selectedCandidate.skill_gaps || selectedCandidate.skill_gaps.length === 0) && <li className="text-sm text-amber-600 italic">No major skill gaps identified</li>}
+                      </ul>
+                    </div>
+                  </div>
+                </AgentCard>
+              )}
+
+              
 
               {activeTab === 'results' && (
                 <AgentCard icon={Trophy} title="Official Interview Performance" accentColor="brand">
